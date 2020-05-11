@@ -1,0 +1,58 @@
+@charset "ISO-8859-1";
+
+.navbar-brand{
+	
+	padding-top: 12px;
+	padding-bottom: 12px;
+	
+}
+
+.form-horizontal{
+	padding-left: 15px;
+	padding-top: 15px;
+
+	
+}
+
+
+.panel-title{
+	font-size: 25px;
+	padding-left: 15px;
+	font-weight: bold;
+	
+	
+}
+
+.panel-body{
+	font-size: 15px;
+	color: #AC00FE;
+	
+}
+
+.alert {
+	margin-left: -5px;
+	margin-right:10px;
+}
+
+.table {
+	margin-left: 30px;
+	margin-right:-100px;
+}
+
+
+.link-panel{
+	float:right; 
+
+	
+}
+
+.titulo-panel{
+	float:left;
+	font-size: 20px; 
+
+	
+}
+
+
+}
+
