@@ -21,10 +21,16 @@
         </div>
     </nav>
 
-	 <form class="form-horizontal" method="POST" action="/titulos">
+	 <form class="form-horizontal" method="POST" action="/titulos" th:object="${titulo}">
 	 <div class="alert alert-success" th:if="${!#strings.isEmpty(mensagem)}">
 	 	<span>Título Salvo com Sucesso!</span>
 	 </div>
+	
+	 <div class="alert alert-danger" th:if="${#fields.hasAnyErrors()}">
+	 	<div th:each="detailedError : ${#fields.detailedErrors()}">
+	 		<span th:text="${detailedError.message}"></span>
+	 		</div>
+	  </div>
 	 
     	<div class="panel panel-default">
     		<div class="panel-heading">
