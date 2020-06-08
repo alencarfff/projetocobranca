@@ -7,6 +7,12 @@
 	
 }
 
+.panel-heading{
+	padding-right: 10px;
+	
+}
+
+
 .form-horizontal{
 	padding-left: 15px;
 	padding-top: 15px;
@@ -50,8 +56,15 @@
 	float:left;
 	font-size: 20px; 
 
+	}
 	
+.panel-body{
+	padding-right: 60px;	
 }
+
+.panel-default{
+	padding-right: 20px;
+}	
 
 
 }
