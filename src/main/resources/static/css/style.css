@@ -64,7 +64,15 @@
 
 .panel-default{
 	padding-right: 20px;
+}
+
+.button{
+	
+	border: 3px;
+	text-decoration: none;
+  display: inline-block;
 }	
 
 
 }
+
