@@ -1,122 +1,117 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
- xmlns:th="http://www.thymeleaf.org">
- 
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="UTF-8"/>
-<title>Controle de Titulos</title>
-<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css"/>
-<link rel="stylesheet" type="text/css" href="/css/style.css"/>
+	<meta charset="UTF-8"/>
+	<title>Controle de Titulos</title>
+	<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css"/>
+	<link rel="stylesheet" type="text/css" href="/css/style.css"/>
 </head>
-
 <body>
-
-<nav class="navbar navbar-dark bg-dark">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="#">
-                    <img alt="Cadastro" src="/images/logo.png"  width="30" height="30" />
-                Controle de Títulos
-                </a>
-            </div>
-        </div>
-    </nav>
-    
+	<nav class="navbar navbar-dark bg-dark">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#">
+					<img alt="Cadastro" src="/images/logo.png"  width="30" height="30" /> Controle de Títulos
+				</a>
+			</div>
+		</div>
+	</nav>
     
     <div class="panel panel-default">
-    		<div class="panel-heading">
-    			
-    				<h2 class="panel-title titulo-panel">Pesquisa de Títulos </h2>
-    				<a class= "btn btn-link link-panel" href="/titulos/novo">Novo Título</a>
-    			
-    		</div>
-    		</div>		
-    		
+		<div class="panel-heading">
+			<h2 class="panel-title titulo-panel">Pesquisa de Títulos </h2>
+			<a class= "btn btn-link link-panel" href="/titulos/novo">Novo Título</a>
+		</div>
+	</div>		
     		
     <div class="panel-body">
-      		<table class="table table-bordered table-striped">
-      			<thead>
-	      			<tr>
-	      				<th class="text-center col-md-1">#</th>
-      					<th>Decrição</th>
-      					<th class="text-center col-md-2">Data de vencimento</th>
-      					<th class="text-right col-md-2">Valor</th>
-      					<th class="text-center col-md-2">Status</th>
-      					<th class="col-md-1"></th>
-	      			
-	      			</tr>
-	      		</thead>
-	      		
-	      		<tbody>
-		      		<tr th:each="titulo : ${titulos}">
-		      			<td class="text-center" th:text="${titulo.codigo}">1</td>
-		      			
-		      			<td th:text="${titulo.descricao}"></td>
-		      			<td class="text-center" th:text="${{titulo.dataVencimento}}"></td>
-		      			<td class="text-right" th:text="|R$ ${{titulo.valor}}|"></td>
-		      			<td class="text-center">
-		      			<span class="label" th:text="${titulo.status.descricao}"
-		      			th:classappend="${titulo.pendente ? 'badge badge-danger' : 'badge badge-success'}"></span>
-		      			</td>
-		      			
-		      			<td class="text-center">
-		      			<a class="btn btn-link btn-xs" th:href="@{/titulos/{codigo}(codigo=${titulo.codigo})}">		      			
-		      			<svg class="bi bi-pencil" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
- 							 <path fill-rule="evenodd" d="M11.293 1.293a1 1 0 0 1 1.414 0l2 2a1 1 0 0 1 0 1.414l-9 9a1 1 0 0 1-.39.242l-3 1a1 1 0 0 1-1.266-1.265l1-3a1 1 0 0 1 .242-.391l9-9zM12 2l2 2-9 9-3 1 1-3 9-9z"/>
-  							<path fill-rule="evenodd" d="M12.146 6.354l-2.5-2.5.708-.708 2.5 2.5-.707.708zM3 10v.5a.5.5 0 0 0 .5.5H4v.5a.5.5 0 0 0 .5.5H5v.5a.5.5 0 0 0 .5.5H6v-1.5a.5.5 0 0 0-.5-.5H5v-.5a.5.5 0 0 0-.5-.5H3z"/>
-						</svg>
-		      			</a>
-		      			
-	      			<button class="button" th:onclick="'javascript:deleta(\'' + ${titulo.codigo} + '\')'">
-   							
-   							<svg class="bi bi-x" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-							  <path fill-rule="evenodd" d="M11.854 4.146a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708-.708l7-7a.5.5 0 0 1 .708 0z"/>
-							  <path fill-rule="evenodd" d="M4.146 4.146a.5.5 0 0 0 0 .708l7 7a.5.5 0 0 0 .708-.708l-7-7a.5.5 0 0 0-.708 0z"/>
+		<table class="table table-bordered table-striped">
+			<thead>
+				<tr>
+					<th class="text-center col-md-1">#</th>
+					<th>Decrição</th>
+					<th class="text-center col-md-2">Data de vencimento</th>
+					<th class="text-right col-md-2">Valor</th>
+					<th class="text-center col-md-2">Status</th>
+					<th class="col-md-1"></th>
+				</tr>
+			</thead>
+			
+			<tbody>
+				<tr th:each="titulo : ${titulos}">
+					<td class="text-center" th:text="${titulo.codigo}">1</td>
+					<td th:text="${titulo.descricao}"></td>
+					<td class="text-center" th:text="${{titulo.dataVencimento}}"></td>
+					<td class="text-right" th:text="|R$ ${{titulo.valor}}|"></td>
+					<td class="text-center">
+						<span class="label" th:text="${titulo.status.descricao}" th:classappend="${titulo.pendente ? 'badge badge-danger' : 'badge badge-success'}"></span>
+					</td>
+					
+					<td class="text-center">
+						<a class="btn btn-link btn-xs" th:href="@{/titulos/{codigo}(codigo=${titulo.codigo})}">		      			
+							<svg class="bi bi-pencil" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+								<path fill-rule="evenodd" d="M11.293 1.293a1 1 0 0 1 1.414 0l2 2a1 1 0 0 1 0 1.414l-9 9a1 1 0 0 1-.39.242l-3 1a1 1 0 0 1-1.266-1.265l1-3a1 1 0 0 1 .242-.391l9-9zM12 2l2 2-9 9-3 1 1-3 9-9z"/>
+								<path fill-rule="evenodd" d="M12.146 6.354l-2.5-2.5.708-.708 2.5 2.5-.707.708zM3 10v.5a.5.5 0 0 0 .5.5H4v.5a.5.5 0 0 0 .5.5H5v.5a.5.5 0 0 0 .5.5H6v-1.5a.5.5 0 0 0-.5-.5H5v-.5a.5.5 0 0 0-.5-.5H3z"/>
 							</svg>
-							</button>
-							
-   				
-		      			
-		      					      			
-		      			</td> 
-		      			
-		      		</tr>
-	      		
-	      		      <tr>
-      					<td colspan="6" th:if="${#lists.isEmpty(titulos)}">Nenhum título foi encontrado</td>
-      				</tr>
-      			
-      			</tbody>
-      		</table>
-      	</div>
-      	  
-      	</body>
-	
-	
+						</a>
+						
+						<button class="button" div-toggle="modal" data-target="modalDelete" th:onclick="'javascript:deleta(\'' + ${titulo.codigo} + '\')'">
+							<svg class="bi bi-x" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+								<path fill-rule="evenodd" d="M11.854 4.146a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708-.708l7-7a.5.5 0 0 1 .708 0z"/>
+								<path fill-rule="evenodd" d="M4.146 4.146a.5.5 0 0 0 0 .708l7 7a.5.5 0 0 0 .708-.708l-7-7a.5.5 0 0 0-.708 0z"/>
+							</svg>
+						</button>		      			
+					</td> 
+				</tr>	      		
+				<tr>
+					<td colspan="6" th:if="${#lists.isEmpty(titulos)}">Nenhum título foi encontrado</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+			
+	<div class="modal" tabindex="-1" role="dialog" id="modalDelete">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">Atenção:</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<p>Você realmente deseja excluir esse dado?</p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+					<button type="button" class="btn btn-success" id="btn-delete-title">Excluir</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
 	<script type="text/javascript">
-	function deleta(id){
-		const canDelete = confirm('Deseja mesmo deletar o título de ID ' + id + '?');
+		function deleta(id){
+			$('#modalDelete').modal('show');
+			document.querySelector('#btn-delete-title').addEventListener('click', function(){
+				$('#modalDelete').modal('hide');
 
-		if( canDelete ){
-			var xhttp = new XMLHttpRequest();
-			xhttp.onreadystatechange = function() {
-				if (this.readyState == 4 && this.status == 204) {
-					alert('titulo deletado com sucesso');
-					window.location.reload();
-				}
-			};
-
-			xhttp.open("DELETE", `/titulos/${id}`, true);
-			xhttp.send();
-		}
-	}
-</script>
-      	
+				var xhttp = new XMLHttpRequest();
+				xhttp.onreadystatechange = function() {
+					if (this.readyState == 4 && this.status == 204) {
+						alert('titulo deletado com sucesso');
+						window.location.reload();
+					}
+				};
 	
-      
-
-<script src="/js/jquery-3.5.0.min.js"></script>
-<script src="/js/bootstrap.min.js"></script>
+				xhttp.open("DELETE", `/titulos/${id}`, true);
+				xhttp.send();
+			});
+		}
+	</script>
+	<script src="/js/jquery-3.5.0.min.js"></script>
+	<script src="/js/bootstrap.min.js"></script>
+</body>
 
 
     	
